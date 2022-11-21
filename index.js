@@ -32,14 +32,44 @@ inquirer
     },
     {
       type: "input",
+      name: "installation",
+      message: "What dependenies did you use for this project?",
+    },
+    {
+      type: "input",
+      name: "usage",
+      message: "What are the steps taken for this app to be used?",
+    },
+    {
+      type: "list",
+      name: "license",
+      message: "What license is needed?",
+      choices: ["None", "MIT", "Apache", "Boost"],
+    },
+    {
+      type: "input",
+      name: "contribution",
+      message: "Who contributed to this project?",
+    },
+    {
+      type: "input",
+      name: "test",
+      message: "How did you test your app?",
+    },
+    {
+      type: "input",
       name: "github",
-
       message: "What is your github username?",
     },
+    {
+      type: "input",
+      name: "email",
+      message: "What is your email?",
+    },
   ])
-  .then((data) => {
-    const content = generateMarkdown(data);
-    console.log(data);
+  .then((result) => {
+    const content = generateMarkdown(result);
+    console.log(result);
     fs.writeFile("README.md", content, (err) => {
       console.log(err);
     });
